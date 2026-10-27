@@ -1,0 +1,72 @@
+{
+  "model": {
+    "type": "coupled_qubits",
+    "nqubits": 2,
+    "omega": [
+      0.0,
+      0.0
+    ],
+    "detuning": [
+      0.0,
+      0.0
+    ],
+    "t1": [
+      2.0,
+      2.0
+    ],
+    "tphi": [
+      3.0,
+      3.0
+    ],
+    "enable_drive_x": false,
+    "enable_drive_y": false,
+    "enable_drive_z": false,
+    "exchange_xy": [
+      {
+        "q0": 0,
+        "q1": 1,
+        "strength": 5.0
+      }
+    ],
+    "zz": []
+  },
+  "initial_state": {
+    "type": "basis",
+    "index": [
+      0,
+      1
+    ]
+  },
+  "program": {
+    "grid": {
+      "dt": 0.002,
+      "n_points": 1001
+    },
+    "pulses": []
+  },
+  "run": {
+    "trajectories": 20000,
+    "base_seed": 12345,
+    "sample_stride": 10,
+    "renormalize_each_step": true
+  },
+  "observables": [
+    "P:10",
+    "P:01",
+    "P:00",
+    "P:11",
+    "Z0",
+    "Z1"
+  ],
+  "output": {
+    "result_path": "out/bench_2q_noisy_result.json",
+    "write_trace": false,
+    "trace_path": "out/bench_2q_noisy_trace.json"
+  },
+  "trace": {
+    "emit_segments": false,
+    "emit_counters": false,
+    "pulse_counter_stride": 100,
+    "diagnostic_stride": 100
+  }
+}

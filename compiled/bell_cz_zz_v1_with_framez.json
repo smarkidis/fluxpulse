@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "time_unit": "us",
+  "schedule": {
+    "type": "asap"
+  },
+  "grid_hint": {
+    "dt": 0.001,
+    "align_to_dt": true,
+    "rounding": "nearest"
+  },
+  "instructions": [
+    {
+      "op": "rotate",
+      "qubit": 0,
+      "axis": {
+        "plane": "xy",
+        "phase": 0.0
+      },
+      "angle": 3.141592653589793,
+      "duration": 0.02,
+      "shape": {
+        "type": "gaussian",
+        "sigma": 0.006,
+        "truncate": 3.0
+      },
+      "label": "H(q0) part 1: Rx(pi)"
+    },
+    {
+      "op": "rotate",
+      "qubit": 0,
+      "axis": {
+        "plane": "xy",
+        "phase": 1.5707963267948966
+      },
+      "angle": 1.5707963267948966,
+      "duration": 0.02,
+      "shape": {
+        "type": "gaussian",
+        "sigma": 0.006,
+        "truncate": 3.0
+      },
+      "label": "H(q0) part 2: Ry(pi/2)"
+    },
+    {
+      "op": "rotate",
+      "qubit": 1,
+      "axis": {
+        "plane": "xy",
+        "phase": 0.0
+      },
+      "angle": 3.141592653589793,
+      "duration": 0.02,
+      "shape": {
+        "type": "gaussian",
+        "sigma": 0.006,
+        "truncate": 3.0
+      },
+      "label": "H(q1) pre-CZ part 1: Rx(pi)"
+    },
+    {
+      "op": "rotate",
+      "qubit": 1,
+      "axis": {
+        "plane": "xy",
+        "phase": 1.5707963267948966
+      },
+      "angle": 1.5707963267948966,
+      "duration": 0.02,
+      "shape": {
+        "type": "gaussian",
+        "sigma": 0.006,
+        "truncate": 3.0
+      },
+      "label": "H(q1) pre-CZ part 2: Ry(pi/2)"
+    },
+    {
+      "op": "zz_phase",
+      "qubits": [
+        0,
+        1
+      ],
+      "phase": 1.5707963267948966,
+      "frame": "ZZ_over_2",
+      "label": "Uzz(pi/2)"
+    },
+    {
+      "op": "frame_z",
+      "qubit": 0,
+      "phase": -1.5707963267948966,
+      "label": "CZ correction: frame_z(q0,-pi/2)"
+    },
+    {
+      "op": "frame_z",
+      "qubit": 1,
+      "phase": -1.5707963267948966,
+      "label": "CZ correction: frame_z(q1,-pi/2)"
+    },
+    {
+      "op": "rotate",
+      "qubit": 1,
+      "axis": {
+        "plane": "xy",
+        "phase": 0.0
+      },
+      "angle": 3.141592653589793,
+      "duration": 0.02,
+      "shape": {
+        "type": "gaussian",
+        "sigma": 0.006,
+        "truncate": 3.0
+      },
+      "label": "H(q1) post-CZ part 1: Rx(pi)"
+    },
+    {
+      "op": "rotate",
+      "qubit": 1,
+      "axis": {
+        "plane": "xy",
+        "phase": 1.5707963267948966
+      },
+      "angle": 1.5707963267948966,
+      "duration": 0.02,
+      "shape": {
+        "type": "gaussian",
+        "sigma": 0.006,
+        "truncate": 3.0
+      },
+      "label": "H(q1) post-CZ part 2: Ry(pi/2)"
+    },
+    {
+      "op": "rotate",
+      "qubit": 1,
+      "axis": { "plane": "xy", "phase": 0.0 },
+      "angle": 3.141592653589793,
+      "duration": 0.02,
+      "shape": { "type": "gaussian", "sigma": 0.006, "truncate": 3.0 },
+      "label": "X(pi) on q1 to map Psi- -> Phi+"
+    }
+  ],
+  "metadata": {
+    "name": "bell_via_cnot_cz",
+    "notes": "Bell prep: H(q0); CNOT(q0->q1) with CNOT=(I\u2297H)CZ(I\u2297H). H implemented as Rx(pi) then Ry(pi/2) (equals H up to global). CZ implemented via zz_phase(pi/2)=exp(-i pi/4 ZZ) plus frame_z(-pi/2) on both qubits (gives CZ up to global)."
+  }
+}

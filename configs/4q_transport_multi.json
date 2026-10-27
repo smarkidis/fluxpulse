@@ -1,0 +1,162 @@
+{
+  "model": {
+    "type": "coupled_qubits",
+    "nqubits": 4,
+    "omega": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "detuning": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "t1": [
+      2.5,
+      2.5,
+      2.5,
+      2.5
+    ],
+    "tphi": [
+      4.0,
+      4.0,
+      4.0,
+      4.0
+    ],
+    "enable_drive_x": true,
+    "enable_drive_y": false,
+    "enable_drive_z": false,
+    "exchange_xy": [
+      {
+        "q0": 0,
+        "q1": 1,
+        "strength": 0.9
+      },
+      {
+        "q0": 1,
+        "q1": 2,
+        "strength": 0.9
+      },
+      {
+        "q0": 2,
+        "q1": 3,
+        "strength": 0.9
+      }
+    ],
+    "zz": [
+      {
+        "q0": 0,
+        "q1": 1,
+        "strength": 0.06
+      },
+      {
+        "q0": 1,
+        "q1": 2,
+        "strength": 0.06
+      },
+      {
+        "q0": 2,
+        "q1": 3,
+        "strength": 0.06
+      }
+    ]
+  },
+  "initial_state": "ground",
+  "program": {
+    "grid": {
+      "t0": 0.0,
+      "dt": 0.001,
+      "n_points": 2001
+    },
+    "pulses": [
+      {
+        "channel": "drive_x0",
+        "envelope": {
+          "type": "piecewise_constant",
+          "segments": [
+            {
+              "t0": 0.0,
+              "t1": 0.0157079633,
+              "value": 200.0
+            },
+            {
+              "t0": 0.0157079633,
+              "t1": 2.0,
+              "value": 0.0
+            }
+          ]
+        }
+      },
+      {
+        "channel": "drive_x1",
+        "envelope": {
+          "type": "piecewise_constant",
+          "segments": [
+            {
+              "t0": 0.0,
+              "t1": 2.0,
+              "value": 0.0
+            }
+          ]
+        }
+      },
+      {
+        "channel": "drive_x2",
+        "envelope": {
+          "type": "piecewise_constant",
+          "segments": [
+            {
+              "t0": 0.0,
+              "t1": 2.0,
+              "value": 0.0
+            }
+          ]
+        }
+      },
+      {
+        "channel": "drive_x3",
+        "envelope": {
+          "type": "piecewise_constant",
+          "segments": [
+            {
+              "t0": 0.0,
+              "t1": 2.0,
+              "value": 0.0
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "run": {
+    "trajectories": 256,
+    "base_seed": 12345,
+    "sample_stride": 1,
+    "renormalize_each_step": true
+  },
+  "observables": [
+    "P:1000",
+    "P:0100",
+    "P:0010",
+    "P:0001",
+    "P:0000",
+    "Z0",
+    "Z1",
+    "Z2",
+    "Z3"
+  ],
+  "output": {
+    "result_path": "out/4q_transport_result_multi.json",
+    "write_trace": false,
+    "trace_path": "out/4q_transport_trace_multi.json"
+  },
+  "trace": {
+    "emit_segments": true,
+    "emit_counters": true,
+    "counter_stride": 5,
+    "time_scale_to_us": 1000.0
+  }
+}

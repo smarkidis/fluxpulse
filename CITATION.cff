@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use FluxPulse in scientific work, please cite the accompanying paper."
+type: software
+title: "FluxPulse"
+authors:
+  - family-names: "Markidis"
+    given-names: "Stefano"
+license: MIT
+preferred-citation:
+  type: conference-paper
+  authors:
+    - family-names: "Markidis"
+      given-names: "Stefano"
+  title: "FluxPulse: A Pulse-Level Simulator for Superconducting QPUs"
+  collection-title: "Q-WORKS 2026, Euro-Par 2026 Workshops"
+  year: 2026
+  url: "https://easychair.org/smart-program/Euro-Par2026Workshops/2026-08-24.html"

@@ -1,0 +1,54 @@
+{
+  "model": {
+    "type": "generic_qubit",
+    "omega": 0.0,
+    "detuning": 0.0,
+    "t1": 0.0,
+    "tphi": 0.0
+  },
+  "run": {
+    "trajectories": 1,
+    "base_seed": 12345,
+    "sample_stride": 10,
+    "renormalize_each_step": true
+  },
+  "output": {
+    "result_path": "out/qml/1q_ideal_encoding_result.json",
+    "write_trace": false,
+    "trace_path": "out/qml/1q_ideal_encoding_trace.json"
+  },
+  "trace": {
+    "emit_segments": false,
+    "emit_counters": false,
+    "pulse_counter_stride": 10,
+    "diagnostic_stride": 10,
+    "time_scale_to_us": 1.0
+  },
+  "initial_state": {
+    "type": "basis",
+    "dims": [
+      2
+    ],
+    "index": [
+      0
+    ]
+  },
+  "observables": {
+    "names": [
+      "X",
+      "Y",
+      "Z",
+      "P0",
+      "P1"
+    ]
+  },
+  "program": {
+    "grid": {
+      "type": "uniform",
+      "t0": 0.0,
+      "dt": 0.001,
+      "n_points": 101
+    },
+    "pulses": []
+  }
+}

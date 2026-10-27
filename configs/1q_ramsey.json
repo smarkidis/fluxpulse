@@ -1,0 +1,43 @@
+{
+  "model": {
+    "type": "generic_qubit",
+    "omega": 0.0,
+    "detuning": 6.283185307179586,
+    "t1": 0.0,
+    "tphi": 0.0
+  },
+  "initial_state": "ground",
+  "run": {
+    "trajectories": 1,
+    "base_seed": 12345,
+    "sample_stride": 1,
+    "renormalize_each_step": true
+  },
+  "program": {
+    "grid": { "t0": 0.0, "dt": 0.001, "n_steps": 1501 },
+    "pulses": [
+      {
+        "channel": "drive_x",
+        "envelope": {
+          "type": "piecewise_constant",
+          "segments": [
+            { "t0": 0.0, "t1": 0.08, "value": 19.634954084936208 },
+            { "t0": 0.58, "t1": 0.66, "value": 19.634954084936208 }
+          ]
+        }
+      }
+    ]
+  },
+  "observables": ["X", "Y", "P1"],
+  "output": {
+    "result_path": "out/1q_ramsey_result.json",
+    "write_trace": true,
+    "trace_path": "out/1q_ramsey_trace.json"
+  },
+  "trace": {
+    "emit_segments": true,
+    "emit_counters": true,
+    "counter_stride": 10,
+    "time_scale_to_us": 1.0
+  }
+}

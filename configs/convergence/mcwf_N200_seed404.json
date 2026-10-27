@@ -1,0 +1,37 @@
+{
+  "model": {
+    "type": "generic_qubit",
+    "omega": 0.0,
+    "detuning": 0.0,
+    "t1": 1.0,
+    "tphi": 0.0
+  },
+  "initial_state": "excited",
+  "run": {
+    "trajectories": 200,
+    "base_seed": 404,
+    "sample_stride": 1,
+    "renormalize_each_step": true
+  },
+  "program": {
+    "grid": {
+      "t0": 0.0,
+      "dt": 0.01,
+      "n_steps": 501
+    }
+  },
+  "observables": [
+    "P1"
+  ],
+  "output": {
+    "result_path": "out/convergence/mcwf_N200_seed404_result.json",
+    "write_trace": false,
+    "trace_path": "out/convergence/mcwf_N200_seed404_trace.json"
+  },
+  "trace": {
+    "emit_segments": false,
+    "emit_counters": false,
+    "counter_stride": 10,
+    "time_scale_to_us": 1.0
+  }
+}

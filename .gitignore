@@ -1,0 +1,32 @@
+# Build products
+/build*/
+/CMakeFiles/
+/CMakeCache.txt
+/CTestTestfile.cmake
+/DartConfiguration.tcl
+/Testing/
+/cmake_install.cmake
+/Makefile
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+
+# Simulation output and temporary test files
+/out/
+/scaling/*.csv
+_tmp_*.json
+*.log
+
+# Python, editors, and OS metadata
+__pycache__/
+*.py[cod]
+.venv/
+.vscode/
+.idea/
+.DS_Store
+._*
+__MACOSX/

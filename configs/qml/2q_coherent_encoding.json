@@ -1,0 +1,119 @@
+{
+  "model": {
+    "type": "coupled_qubits",
+    "nqubits": 2,
+    "omega": [
+      0.0,
+      0.0
+    ],
+    "detuning": [
+      0.0,
+      0.0
+    ],
+    "t1": [
+      0.0,
+      0.0
+    ],
+    "tphi": [
+      0.0,
+      0.0
+    ],
+    "enable_drive_x": true,
+    "enable_drive_y": true,
+    "enable_drive_z": false,
+    "exchange_xy": [],
+    "zz": []
+  },
+  "run": {
+    "trajectories": 1,
+    "base_seed": 12345,
+    "sample_stride": 1,
+    "renormalize_each_step": true
+  },
+  "output": {
+    "result_path": "out/qml/2q_coherent_encoding_result.json",
+    "write_trace": false,
+    "trace_path": "out/qml/2q_coherent_encoding_trace.json"
+  },
+  "trace": {
+    "emit_segments": false,
+    "emit_counters": false,
+    "counter_stride": 10,
+    "time_scale_to_us": 1.0
+  },
+  "initial_state": {
+    "type": "basis",
+    "dims": [
+      2,
+      2
+    ],
+    "index": [
+      0,
+      0
+    ]
+  },
+  "observables": {
+    "names": [
+      "X0",
+      "Y0",
+      "Z0",
+      "X1",
+      "Y1",
+      "Z1",
+      "XX01",
+      "YY01",
+      "YX01",
+      "ZZ01",
+      "P:00",
+      "P:01",
+      "P:10",
+      "P:11"
+    ]
+  },
+  "program": {
+    "grid": {
+      "type": "uniform",
+      "t0": 0.0,
+      "dt": 0.0001,
+      "n_points": 201
+    },
+    "pulses": [
+      {
+        "channel": "drive_x0",
+        "envelope": {
+          "type": "piecewise_constant",
+          "segments": [
+            {
+              "t0": 0.0,
+              "t1": 0.01,
+              "value": 157.07963267948966
+            },
+            {
+              "t0": 0.01,
+              "t1": 0.02,
+              "value": 0.0
+            }
+          ]
+        }
+      },
+      {
+        "channel": "drive_y1",
+        "envelope": {
+          "type": "piecewise_constant",
+          "segments": [
+            {
+              "t0": 0.0,
+              "t1": 0.01,
+              "value": 157.07963267948966
+            },
+            {
+              "t0": 0.01,
+              "t1": 0.02,
+              "value": 0.0
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

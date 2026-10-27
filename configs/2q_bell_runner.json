@@ -1,0 +1,121 @@
+{
+  "model": {
+    "type": "coupled_qubits",
+    "nqubits": 2,
+    "omega": [
+      0.0,
+      0.0
+    ],
+    "detuning": [
+      0.0,
+      0.0
+    ],
+    "t1": [
+      1000.0,
+      1000.0
+    ],
+    "tphi": [
+      1000.0,
+      1000.0
+    ],
+    "enable_drive_x": true,
+    "enable_drive_y": true,
+    "enable_drive_z": false,
+    "exchange_xy": [],
+    "zz": [
+      {
+        "q0": 0,
+        "q1": 1,
+        "strength": 0.5
+      }
+    ]
+  },
+  "initial_state": "ground",
+  "program": {
+    "grid": {
+      "t0": 0.0,
+      "dt": 0.001,
+      "n_points": 1001
+    },
+    "pulses": [
+      {
+        "channel": "drive_x0",
+        "envelope": {
+          "type": "piecewise_constant",
+          "segments": [
+            {
+              "t0": 0.0,
+              "t1": 1.0,
+              "value": 0.0
+            }
+          ]
+        }
+      },
+      {
+        "channel": "drive_y0",
+        "envelope": {
+          "type": "piecewise_constant",
+          "segments": [
+            {
+              "t0": 0.0,
+              "t1": 1.0,
+              "value": 0.0
+            }
+          ]
+        }
+      },
+      {
+        "channel": "drive_x1",
+        "envelope": {
+          "type": "piecewise_constant",
+          "segments": [
+            {
+              "t0": 0.0,
+              "t1": 1.0,
+              "value": 0.0
+            }
+          ]
+        }
+      },
+      {
+        "channel": "drive_y1",
+        "envelope": {
+          "type": "piecewise_constant",
+          "segments": [
+            {
+              "t0": 0.0,
+              "t1": 1.0,
+              "value": 0.0
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "run": {
+    "trajectories": 256,
+    "base_seed": 1234,
+    "sample_stride": 1,
+    "renormalize_each_step": true
+  },
+  "observables": [
+    "P:00",
+    "P:01",
+    "P:10",
+    "P:11",
+    "Z0",
+    "Z1",
+    "ZZ01"
+  ],
+  "output": {
+    "result_path": "out/2q_bell_result.json",
+    "write_trace": false,
+    "trace_path": "out/2q_bell_trace.json"
+  },
+  "trace": {
+    "emit_segments": true,
+    "emit_counters": true,
+    "counter_stride": 5,
+    "time_scale_to_us": 1.0
+  }
+}

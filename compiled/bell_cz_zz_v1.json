@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "time_unit": "us",
+  "schedule": {
+    "type": "asap"
+  },
+  "grid_hint": {
+    "dt": 0.001,
+    "align_to_dt": true,
+    "rounding": "nearest"
+  },
+  "instructions": [
+    {
+      "op": "rotate",
+      "qubit": 0,
+      "axis": {
+        "plane": "xy",
+        "phase": 1.5707963267948966
+      },
+      "angle": 1.5707963267948966,
+      "duration": 0.02,
+      "shape": {
+        "type": "gaussian",
+        "sigma": 0.006,
+        "truncate": 3.0
+      },
+      "label": "H on q0 (Ry +pi/2)"
+    },
+    {
+      "op": "rotate",
+      "qubit": 1,
+      "axis": {
+        "plane": "xy",
+        "phase": 1.5707963267948966
+      },
+      "angle": 1.5707963267948966,
+      "duration": 0.02,
+      "shape": {
+        "type": "gaussian",
+        "sigma": 0.006,
+        "truncate": 3.0
+      },
+      "label": "H on q1 (Ry +pi/2)"
+    },
+    {
+      "op": "zz_phase",
+      "qubits": [
+        0,
+        1
+      ],
+      "phase": 1.5707963267948966,
+      "frame": "ZZ_over_2",
+      "label": "CZ entangling phase (ZZ)"
+    },
+    {
+      "op": "rotate",
+      "qubit": 1,
+      "axis": {
+        "plane": "xy",
+        "phase": 1.5707963267948966
+      },
+      "angle": 1.5707963267948966,
+      "duration": 0.02,
+      "shape": {
+        "type": "gaussian",
+        "sigma": 0.006,
+        "truncate": 3.0
+      },
+      "label": "H on q1 (Ry +pi/2)"
+    }
+  ],
+  "metadata": {
+    "name": "bell_via_cz",
+    "notes": "Portable primitives: rotate(angle,duration,shape) + zz_phase(phase)."
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "model": {
+    "type": "coupled_qubits",
+    "nqubits": 3,
+    "omega": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "detuning": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "t1": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tphi": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "enable_drive_x": true,
+    "enable_drive_y": true,
+    "enable_drive_z": false,
+    "exchange_xy": [],
+    "zz": []
+  },
+  "run": {
+    "trajectories": 1,
+    "base_seed": 12345,
+    "sample_stride": 10,
+    "renormalize_each_step": true
+  },
+  "output": {
+    "result_path": "out/qml/3q_ideal_encoding_result.json",
+    "write_trace": false,
+    "trace_path": "out/qml/3q_ideal_encoding_trace.json"
+  },
+  "trace": {
+    "emit_segments": false,
+    "emit_counters": false,
+    "pulse_counter_stride": 10,
+    "diagnostic_stride": 10,
+    "time_scale_to_us": 1.0
+  },
+  "initial_state": {
+    "type": "basis",
+    "dims": [
+      2,
+      2,
+      2
+    ],
+    "index": [
+      0,
+      0,
+      0
+    ]
+  },
+  "observables": {
+    "names": [
+      "Z0",
+      "Z1",
+      "Z2",
+      "ZZ01",
+      "ZZ12",
+      "P:000",
+      "P:001",
+      "P:010",
+      "P:011",
+      "P:100",
+      "P:101",
+      "P:110",
+      "P:111"
+    ]
+  },
+  "program": {
+    "grid": {
+      "type": "uniform",
+      "t0": 0.0,
+      "dt": 0.001,
+      "n_points": 101
+    },
+    "pulses": []
+  }
+}

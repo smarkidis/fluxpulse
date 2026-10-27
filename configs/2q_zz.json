@@ -1,0 +1,100 @@
+{
+  "model": {
+    "type": "coupled_qubits",
+    "nqubits": 2,
+    "omega": [
+      0.0,
+      0.0
+    ],
+    "detuning": [
+      0.0,
+      0.0
+    ],
+    "t1": [
+      0.0,
+      0.0
+    ],
+    "tphi": [
+      0.0,
+      0.0
+    ],
+    "enable_drive_x": false,
+    "enable_drive_y": true,
+    "enable_drive_z": false,
+    "exchange_xy": [],
+    "zz": [
+      {
+        "q0": 0,
+        "q1": 1,
+        "strength": 5.0
+      }
+    ]
+  },
+  "initial_state": "ground",
+  "run": {
+    "trajectories": 1,
+    "base_seed": 12345,
+    "sample_stride": 1,
+    "renormalize_each_step": true
+  },
+  "program": {
+    "grid": {
+      "t0": 0.0,
+      "dt": 0.001,
+      "n_steps": 351
+    },
+    "pulses": [
+      {
+        "channel": "drive_y0",
+        "envelope": {
+          "type": "piecewise_constant",
+          "segments": [
+            {
+              "t0": 0.0,
+              "t1": 0.007853981633974483,
+              "value": 200.0
+            },
+            {
+              "t0": 0.007853981633974483,
+              "t1": 0.35,
+              "value": 0.0
+            }
+          ]
+        }
+      },
+      {
+        "channel": "drive_y1",
+        "envelope": {
+          "type": "piecewise_constant",
+          "segments": [
+            {
+              "t0": 0.0,
+              "t1": 0.007853981633974483,
+              "value": 200.0
+            },
+            {
+              "t0": 0.007853981633974483,
+              "t1": 0.35,
+              "value": 0.0
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "observables": [
+    "X0",
+    "X1"
+  ],
+  "output": {
+    "result_path": "out/2q_zz_result.json",
+    "write_trace": true,
+    "trace_path": "out/2q_zz_trace.json"
+  },
+  "trace": {
+    "emit_segments": true,
+    "emit_counters": true,
+    "counter_stride": 10,
+    "time_scale_to_us": 1.0
+  }
+}
