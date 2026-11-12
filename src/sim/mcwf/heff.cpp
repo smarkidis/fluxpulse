@@ -16,21 +16,14 @@ inline Complex cmul(const Complex& a, const Complex& b) {
 inline Complex cscale(const Complex& a, Real s) { return cplx(a.re * s, a.im * s); }
 
 // y = A * x (DenseOp column-major)
-Status matvec_denseop(const DenseOp& A, Span<const Complex> x, Span<Complex> y) {
-  const Dim n = A.dim();
-  if (x.size != n || y.size != n) {
-    return Error(ErrorCode::kInvalidArgument, "matvec_denseop: dimension mismatch");
+Status matvec_denseop(const DenseOp &A, Span<const Complex> x,
+                      Span<Complex> y) {
+  if (x.size != A.dim() || y.size != A.dim()) {
+    return Error(ErrorCode::kInvalidArgument,
+                 "matvec_denseop: dimension mismatch");
   }
-  const Dim lda = A.lda();
-  const Complex* M = A.data();
 
-  for (Dim row = 0; row < n; ++row) {
-    Complex acc = cplx(Real{0}, Real{0});
-    for (Dim col = 0; col < n; ++col) {
-      acc = cadd(acc, cmul(M[row + col * lda], x[col]));
-    }
-    y[row] = acc;
-  }
+  A.apply(y, x);
   return Ok();
 }
 
